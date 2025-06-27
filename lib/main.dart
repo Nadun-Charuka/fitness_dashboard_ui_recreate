@@ -1,3 +1,4 @@
+import 'package:fitness_dashboard_ui_recreate/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Fitness Dashboard UI",
-      home: Scaffold(),
+      theme: ThemeData.dark(),
+      home: MainScreen(),
     );
   }
 }
