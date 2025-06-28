@@ -1,6 +1,7 @@
 import 'package:fitness_dashboard_ui_recreate/constants/constant.dart';
 import 'package:fitness_dashboard_ui_recreate/data/bargraph_data.dart';
 import 'package:fitness_dashboard_ui_recreate/models/bargraph_model.dart';
+import 'package:fitness_dashboard_ui_recreate/utils/responsive.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -9,15 +10,20 @@ class BargraphWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
+    final isTablet = Responsive.isTablet(context);
     final graphs = BargraphData.graphs;
     return SizedBox(
-      height: 500,
       child: GridView.builder(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: graphs.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
+            crossAxisCount: isMobile
+                ? 1
+                : isTablet
+                    ? 2
+                    : 3,
             crossAxisSpacing: defaultPadding,
             mainAxisSpacing: defaultPadding,
             childAspectRatio: 5 / 4),

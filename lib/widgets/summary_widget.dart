@@ -9,17 +9,23 @@ class SummaryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(defaultPadding),
-      child: Column(
-        children: [
-          SizedBox(height: defaultPadding),
-          PiechartWidget(),
-          SizedBox(height: defaultPadding),
-          SummaryDetailsWidget(),
-          SizedBox(height: defaultPadding),
-          ScheduleWidget(),
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        color: Theme.of(context).cardColor,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              SizedBox(height: defaultPadding),
+              PiechartWidget(),
+              SizedBox(height: defaultPadding),
+              SummaryDetailsWidget(),
+              SizedBox(height: defaultPadding),
+              ScheduleWidget(),
+            ],
+          ),
+        ),
       ),
     );
   }

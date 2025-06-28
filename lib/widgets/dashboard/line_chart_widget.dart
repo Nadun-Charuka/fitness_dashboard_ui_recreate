@@ -1,5 +1,6 @@
 import 'package:fitness_dashboard_ui_recreate/constants/constant.dart';
 import 'package:fitness_dashboard_ui_recreate/data/line_chart_data.dart';
+import 'package:fitness_dashboard_ui_recreate/utils/responsive.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class LineChartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
     final spots = LinetData.spots;
     final leftTitles = LinetData.leftTitle;
     final bottomTitles = LinetData.bottomTitle;
@@ -24,7 +26,7 @@ class LineChartWidget extends StatelessWidget {
             ),
             const SizedBox(height: defaultPadding),
             AspectRatio(
-              aspectRatio: 16 / 6,
+              aspectRatio: isMobile ? 30 / 15 : 16 / 6,
               child: LineChart(
                 LineChartData(
                   minX: 0,

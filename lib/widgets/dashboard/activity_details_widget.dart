@@ -1,5 +1,6 @@
 import 'package:fitness_dashboard_ui_recreate/constants/constant.dart';
 import 'package:fitness_dashboard_ui_recreate/data/activity_details_data.dart';
+import 'package:fitness_dashboard_ui_recreate/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class ActivityDetailsWidget extends StatelessWidget {
@@ -9,12 +10,14 @@ class ActivityDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final activityDetails = ActivityDetailsData.activityDetails;
 
+    final isMobile = Responsive.isMobile(context);
+
     return SizedBox(
       child: GridView.builder(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
+          crossAxisCount: isMobile ? 2 : 4,
           crossAxisSpacing: defaultPadding,
           mainAxisSpacing: defaultPadding,
         ),

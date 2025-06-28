@@ -14,9 +14,9 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
   @override
   Widget build(BuildContext context) {
     final menu = SideMenuData.menu;
-    return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: defaultPadding, vertical: 80),
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.5,
+      color: Theme.of(context).cardColor,
       child: ListView.builder(
         itemCount: menu.length,
         itemBuilder: (context, index) {
@@ -30,34 +30,38 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
                   currentIndex = index;
                 });
               },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: currentIndex == index
-                        ? selectionColor
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        item.icon,
-                        color:
-                            currentIndex == index ? Colors.black : Colors.grey,
-                      ),
-                      SizedBox(
-                        width: defaultPadding,
-                      ),
-                      Text(
-                        item.title,
-                        style: TextStyle(
-                          fontSize: 16,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: currentIndex == index
+                          ? selectionColor
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          item.icon,
                           color: currentIndex == index
                               ? Colors.black
                               : Colors.grey,
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          width: defaultPadding,
+                        ),
+                        Text(
+                          item.title,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: currentIndex == index
+                                ? Colors.black
+                                : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
