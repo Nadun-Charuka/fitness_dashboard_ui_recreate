@@ -6,20 +6,23 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: TextField(
-        decoration: InputDecoration(
-          filled: true,
-          border: OutlineInputBorder(),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.transparent),
+    return SizedBox(
+      height: 100,
+      child: Expanded(
+        child: TextField(
+          decoration: InputDecoration(
+            filled: true,
+            border: OutlineInputBorder(),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.transparent),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor),
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 5),
+            hintText: "Search",
+            prefixIcon: Icon(Icons.search),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: primaryColor),
-          ),
-          contentPadding: EdgeInsets.symmetric(vertical: 5),
-          hintText: "Search",
-          prefixIcon: Icon(Icons.search),
         ),
       ),
     );

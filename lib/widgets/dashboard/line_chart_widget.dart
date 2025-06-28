@@ -29,7 +29,7 @@ class LineChartWidget extends StatelessWidget {
                 LineChartData(
                   minX: 0,
                   minY: 0,
-                  maxX: 110,
+                  maxX: 120,
                   maxY: 100,
                   // gridData: FlGridData(show: false),
                   // borderData: FlBorderData(show: false),
